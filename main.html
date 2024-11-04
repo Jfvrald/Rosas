@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sayo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="sticky" style="z-index: 0; position: relative;">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+    </section>
+    <div class="audio-card" style="position: relative; z-index: 1;">
+        <div class="player" style="position: relative; z-index: 2;">
+            <div class="top">
+                <button class="small" onclick="prevTrack()"></button>
+                <button class="small" onclick="nextTrack()"></button>
+            </div>
+
+            <div class="center">
+                <img class="album" id="albumCover" src="cover1.jpg" alt="Album Cover">
+            </div>
+
+            <div class="song_details">
+                <div id="songTitle" style="font-size: 20px;">Title</div>
+                <div id="songArtist" style="margin-top: 7px;font-size: 10px;">Artist</div>
+            </div>
+
+            <div class="slider">
+                <div class="time">
+                    <div id="currentTime">0:00</div>
+                    <div id="totalTime">0:00</div>
+                </div>
+                <div class="slider_bar" onclick="setTime(event)">
+                    <div class="inner_slider_bar"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="big" onclick="prevTrack()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="prev">
+                        <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-320c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3l0 41.7 0 41.7L459.5 440.6zM256 352l0-96 0-128 0-32c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-64z"/>
+                    </svg>
+                </button>
+                <button class="big_play_pause" onclick="togglePlayPause()">
+                    <div id="playPauseButton"><b>Play</b></div>
+                </button>
+                <button class="big" onclick="nextTrack()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="next">
+                        <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416L0 96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3l0 41.7 0 41.7L52.5 440.6zM256 352l0-96 0-128 0-32c0-12.4-7.2-23.7-18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29l0-64z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <audio id="audio"></audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
