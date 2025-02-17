@@ -154,10 +154,30 @@ function setTime(event) {
   }, 50); // 50ms debounce
 }
 
+let isDragging = false;
+
+function startDrag(event) {
+  isDragging = true;
+  setTime(event);
+}
+
+function drag(event) {
+  if (isDragging) {
+    setTime(event);
+  }
+}
+
+function stopDrag() {
+  isDragging = false;
+}
+
 // Initialize with the first track
 window.addEventListener("load", () => {
   loadTrack(currentTrackIndex);
   audio.load(); // Ensure initial track is loaded
+  slider.addEventListener("mousedown", startDrag);
+  window.addEventListener("mousemove", drag);
+  window.addEventListener("mouseup", stopDrag);
 });
 
 audio.addEventListener("timeupdate", updateSlider);
@@ -182,3 +202,6 @@ controls.addEventListener("click", (e) => {
 
 const slider = document.querySelector(".slider_bar");
 slider.addEventListener("click", setTime);
+slider.addEventListener("mousedown", startDrag);
+window.addEventListener("mousemove", drag);
+window.addEventListener("mouseup", stopDrag);
